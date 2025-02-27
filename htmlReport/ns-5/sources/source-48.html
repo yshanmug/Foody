@@ -1,0 +1,452 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > OrderFoodResponseBody</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.chef.foody.data.remote</a>
+</div>
+
+<h1>Coverage Summary for Class: OrderFoodResponseBody (com.chef.foody.data.remote)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OrderFoodResponseBody</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.chef.foody.data.remote
+&nbsp;import com.chef.foody.domain.model.DeliveryOrderStatus
+&nbsp;import com.chef.foody.domain.model.DeliveryType
+&nbsp;import com.chef.foody.domain.model.RentalChefOrderStatus
+&nbsp;import com.chef.foody.domain.model.RentalOrderStatus
+&nbsp;import com.squareup.moshi.Json
+&nbsp;import com.squareup.moshi.JsonClass
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class UserLoginResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: UserLoginResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class UserLoginResponseBody(
+&nbsp;    @Json(name  = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String,
+&nbsp;    @Json(name = &quot;userInfo&quot;) val userInfo: UserInfo?,
+&nbsp;    @Json(name = &quot;authToken&quot;) val authToken: String?
+&nbsp;)
+&nbsp;
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class UserInfo(
+&nbsp;    @Json(name  = &quot;first_name&quot;) val firstName: String,
+&nbsp;    @Json(name  = &quot;last_name&quot;) val lastName: String,
+&nbsp;    @Json(name  = &quot;email&quot;) val email: String,
+&nbsp;    @Json(name  = &quot;address&quot;) val address: String?
+&nbsp;)
+&nbsp;data class RegisterChefResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: RegisterChefResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class RegisterChefResponseBody(
+&nbsp;    @Json(name  = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;data class UserRegistrationResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: UserRegistrationResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class UserRegistrationResponseBody(
+&nbsp;    @Json(name  = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String,
+&nbsp;    @Json(name = &quot;userInfo&quot;) val userInfo: UserInfo?,
+&nbsp;    @Json(name = &quot;authToken&quot;) val authToken: String?
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CustomerInfo(
+&nbsp;    @Json(name = &quot;order_id&quot;) val orderId: Int,
+&nbsp;    @Json(name = &quot;user_id&quot;) val userId: Int,
+&nbsp;    @Json(name = &quot;customer_first_name&quot;) val customerFirstName: String,
+&nbsp;    @Json(name = &quot;customer_last_name&quot;) val customerLastName: String,
+&nbsp;    // beta API
+&nbsp;    @Json(name = &quot;cart_info&quot;) val cartInfo: List&lt;CartInfo&gt;?,
+&nbsp;    @Json(name = &quot;is_already_quoted&quot;) val isAlreadyQuoted: Boolean,
+&nbsp;    @Json(name = &quot;price&quot;) val price: Float,
+&nbsp;    @Json(name = &quot;preparation_time&quot;) val preparationTime: Int,
+&nbsp;    @Json(name = &quot;quotation_id&quot;) val quotationId: Int,
+&nbsp;    @Json(name = &quot;quotation_status_is_accepted&quot;) val quotationStatusIsAccepted: String,
+&nbsp;    // beta API
+&nbsp;    @Json(name = &quot;type&quot;) val type: String? = null, // has type -- prepare and cook by chef
+&nbsp;    @Json(name = &quot;menu&quot;) val menu: String? = null, // has menu &amp; user_note -- chef rental
+&nbsp;    @Json(name = &quot;user_note&quot;) val userNote: String? = null,
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CartInfo(
+&nbsp;    @Json(name = &quot;name&quot;) val name: String,
+&nbsp;    @Json(name = &quot;quantity&quot;) val quantity: Int
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefFindCustomerResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: ChefFindCustomerResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefFindCustomerResponseBody(
+&nbsp;    @Json(name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String,
+&nbsp;    @Json(name = &quot;customer_info&quot;) val customerInfo: List&lt;CustomerInfo&gt;,
+&nbsp;)
+&nbsp;
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefFindCustomerBetaResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: ChefFindCustomerBetaResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefFindCustomerBetaResponseBody(
+&nbsp;    @Json(name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String,
+&nbsp;    @Json(name = &quot;customer_info&quot;) val customerInfo: List&lt;CustomerInfo&gt;,
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefSendQuotationResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: ChefSendQuotationResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefSendQuotationResponseBody(
+&nbsp;    @Json(name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefSendQuotationBetaResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: ChefSendQuotationBetaResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefSendQuotationBetaResponseBody (
+&nbsp;    @Json(name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CheckChefStatusResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: CheckChefStatusResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CheckChefStatusResponseBody(
+&nbsp;    @Json(name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CheckQuotationResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: CheckQuotationResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CheckQuotationResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;    @Json (name = &quot;order_status&quot;) val orderStatus: OrderStatus
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class OrderStatus(
+&nbsp;    @Json (name = &quot;order_id&quot;) val orderId: Int,
+&nbsp;    @Json (name = &quot;customer_first_name&quot;) val customerFirstName: String,
+&nbsp;    @Json (name = &quot;customer_last_name&quot;) val customerLastName: String,
+&nbsp;    @Json (name = &quot;customer_address&quot;) val customerAddress: String?,
+&nbsp;    @Json (name = &quot;order_status&quot;) val deliveryOrderStatus: DeliveryOrderStatus,
+&nbsp;    @Json (name = &quot;delivery_mode&quot;) val deliveryType: DeliveryType,
+&nbsp;    @Json (name = &quot;preparation_time&quot;) val preparationTime: Int,
+&nbsp;    @Json (name = &quot;price&quot;) val price: Int,
+&nbsp;    @Json (name = &quot;cart_info&quot;) val cartInfo: List&lt;CartInfo&gt;
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefUpdateOrderStatusResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: ChefUpdateOrderStatusResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefUpdateOrderStatusResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class OrderFoodResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: OrderFoodResponseBody
+&nbsp;)
+<b class="fc">&nbsp;@JsonClass(generateAdapter = true)</b>
+&nbsp;data class OrderFoodResponseBody(
+<b class="fc">&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,</b>
+<b class="fc">&nbsp;    @Json (name = &quot;message&quot;) val message: String,</b>
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class LookingForQuotationResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: LookingForQuotationResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class LookingForQuotationResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;    @Json(name = &quot;quotation&quot;) val quotation: QuotationDetails
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class QuotationDetails(
+&nbsp;    @Json(name = &quot;cart_info&quot;) val cart_info: List&lt;CartInfo&gt;,
+&nbsp;    @Json(name = &quot;quotation_info&quot;) val quotation_info: List&lt;QuotationInfo&gt;
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class QuotationInfo(
+&nbsp;    @Json(name = &quot;quotation_id&quot;) val quotation_id: Int,
+&nbsp;    @Json(name = &quot;chef_first_name&quot;) val chef_first_name: String,
+&nbsp;    @Json(name = &quot;chef_last_name&quot;) val chef_last_name: String,
+&nbsp;    @Json(name = &quot;price&quot;) val price: Int,
+&nbsp;    @Json(name = &quot;preparation_time&quot;) val preparation_time: String,
+&nbsp;    @Json (name = &quot;delivery_mode&quot;) val delivery_mode: DeliveryType
+&nbsp;)
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class UpdateUserAddressResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: UpdateUserAddressResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class UpdateUserAddressResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class RentChefResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: RentChefResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class RentChefResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class LookingForChefRentQuotationResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: LookingForChefRentQuotationResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class LookingForChefRentQuotationResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;    @Json(name = &quot;quotation&quot;) val quotation: List&lt;ChefQuotationDetails&gt;
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefQuotationDetails(
+&nbsp;    @Json(name = &quot;quotation_id&quot;) val quotation_id: Int,
+&nbsp;    @Json(name = &quot;chef_first_name&quot;) val chef_first_name: String,
+&nbsp;    @Json(name = &quot;chef_last_name&quot;) val chef_last_name: String,
+&nbsp;    @Json(name = &quot;price&quot;) val price: Int,
+&nbsp;    @Json(name = &quot;menu&quot;) val menu : String,
+&nbsp;    @Json(name = &quot;preparation_time&quot;) val preparation_time: Int
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class AcceptOfferQuotationResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: AcceptOfferQuotationResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class AcceptOfferQuotationResponseBody(
+&nbsp;    @Json(name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CustomerCheckOrderStatusResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: CustomerCheckOrderStatusResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CustomerCheckOrderStatusResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;    @Json (name = &quot;order_status&quot;) val orderStatus: CustomerCheckOrderStatus
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CustomerCheckOrderStatus(
+&nbsp;    @Json (name = &quot;chef_first_name&quot;) val chef_first_name: String,
+&nbsp;    @Json (name = &quot;chef_last_name&quot;) val chef_last_name: String,
+&nbsp;    @Json (name = &quot;chef_address&quot;) val chef_address: String?,
+&nbsp;    @Json (name = &quot;order_status&quot;) val order_status: DeliveryOrderStatus,
+&nbsp;    @Json (name = &quot;delivery_mode&quot;) val delivery_mode: DeliveryType,
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class AcceptToRentalQuotationResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: AcceptToRentalQuotationResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class AcceptToRentalQuotationResponseBody(
+&nbsp;    @Json(name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json(name = &quot;message&quot;) val message: String
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CurrentRentalOrderStatusResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: CurrentRentalOrderStatusResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CurrentRentalOrderStatusResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;    @Json (name = &quot;order_status&quot;) val orderStatus: CurrentRentalOrderStatus
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class GetUserAddressResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: GetUserAddressResponseBody
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class GetUserAddressResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;    @Json (name = &quot;address&quot;) val address: String
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class CurrentRentalOrderStatus(
+&nbsp;    @Json (name = &quot;chef_first_name&quot;) val chef_first_name: String,
+&nbsp;    @Json (name = &quot;chef_last_name&quot;) val chef_last_name: String,
+&nbsp;    @Json (name = &quot;chef_address&quot;) val chef_address: String?,
+&nbsp;    @Json (name = &quot;order_status&quot;) val order_status: RentalOrderStatus
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class GetClientRentalOrderStatusByChefResponse(
+&nbsp;    @Json(name = &quot;response&quot;) val response: GetClientRentalOrderStatusByChefResponseBody
+&nbsp;)
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class GetClientRentalOrderStatusByChefResponseBody(
+&nbsp;    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;    @Json (name = &quot;order_status&quot;) val orderStatus: ChefOrderStatus
+&nbsp;)
+&nbsp;
+&nbsp;@JsonClass(generateAdapter = true)
+&nbsp;data class ChefOrderStatus(
+&nbsp;    @Json (name = &quot;order_id&quot;) val orderId: Int,
+&nbsp;    @Json (name = &quot;customer_first_name&quot;) val customerFirstName: String,
+&nbsp;    @Json (name = &quot;customer_last_name&quot;) val customerLastName: String,
+&nbsp;    @Json (name = &quot;customer_address&quot;) val customerAddress: String?,
+&nbsp;    @Json (name = &quot;user_note&quot;) val userNote: String,
+&nbsp;    @Json (name = &quot;order_status&quot;) val chefOrderStatus: RentalChefOrderStatus,
+&nbsp;    @Json (name = &quot;preparation_time&quot;) val preparationTime: Int,
+&nbsp;    @Json (name = &quot;price&quot;) val price: Int,
+&nbsp;    @Json (name = &quot;menu&quot;) val menu : String
+&nbsp;
+&nbsp;)
+&nbsp;
+&nbsp;
+&nbsp;//@JsonClass(generateAdapter = true)
+&nbsp;//data class ChefUpdateOrderStatusResponse(
+&nbsp;//    @Json(name = &quot;response&quot;) val response: ChefUpdateOrderStatusResponseBody
+&nbsp;//)
+&nbsp;//@JsonClass(generateAdapter = true)
+&nbsp;//data class ChefUpdateOrderStatusResponseBody(
+&nbsp;//    @Json (name = &quot;status&quot;) val status: Boolean,
+&nbsp;//    @Json (name = &quot;message&quot;) val message: String,
+&nbsp;//)
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-04 16:59</div>
+</div>
+</body>
+</html>

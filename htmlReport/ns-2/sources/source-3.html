@@ -1,0 +1,225 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MainActivity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.chef.foody</a>
+</div>
+
+<h1>Coverage Summary for Class: MainActivity (com.chef.foody)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MainActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.chef.foody
+&nbsp;
+&nbsp;import HomeScreen
+&nbsp;import ProfileScreen
+&nbsp;import android.os.Bundle
+&nbsp;import android.util.Log
+&nbsp;import androidx.activity.ComponentActivity
+&nbsp;import androidx.activity.compose.setContent
+&nbsp;import androidx.compose.animation.AnimatedVisibility
+&nbsp;import androidx.compose.foundation.background
+&nbsp;import androidx.compose.foundation.clickable
+&nbsp;import androidx.compose.foundation.layout.Arrangement
+&nbsp;import androidx.compose.foundation.layout.Box
+&nbsp;import androidx.compose.foundation.layout.Column
+&nbsp;import androidx.compose.foundation.layout.fillMaxSize
+&nbsp;import androidx.compose.material3.MaterialTheme
+&nbsp;import androidx.compose.material3.Surface
+&nbsp;import androidx.compose.material3.Text
+&nbsp;import androidx.compose.runtime.getValue
+&nbsp;import androidx.compose.runtime.mutableStateOf
+&nbsp;import androidx.compose.runtime.remember
+&nbsp;import androidx.compose.runtime.setValue
+&nbsp;import androidx.compose.ui.Alignment
+&nbsp;import androidx.compose.ui.Modifier
+&nbsp;import androidx.compose.ui.graphics.Color
+&nbsp;import androidx.compose.ui.unit.dp
+&nbsp;import androidx.navigation.compose.NavHost
+&nbsp;import androidx.navigation.compose.composable
+&nbsp;import androidx.navigation.compose.rememberNavController
+&nbsp;import com.chef.foody.screens.CartScreen
+&nbsp;import com.chef.foody.screens.FindOffersScreen
+&nbsp;import com.chef.foody.screens.LoginScreen
+&nbsp;import com.chef.foody.screens.OrderFoodScreen
+&nbsp;import com.chef.foody.screens.SignUpScreen
+&nbsp;import com.chef.foody.screens.SplashScreen
+&nbsp;import com.chef.foody.screens.UserOrderDeliveryStatusScreen
+&nbsp;import com.chef.foody.screens.UserOrderPickupStatusScreen
+&nbsp;import com.chef.foody.ui.theme.FoodyTheme
+&nbsp;import com.chef.foody.util.Screen
+&nbsp;import dagger.hilt.android.AndroidEntryPoint
+&nbsp;
+&nbsp;
+&nbsp;@AndroidEntryPoint
+<b class="nc">&nbsp;class MainActivity : ComponentActivity() {</b>
+&nbsp;
+&nbsp;
+&nbsp;    override fun onCreate(savedInstanceState: Bundle?) {
+<b class="nc">&nbsp;        super.onCreate(savedInstanceState)</b>
+&nbsp;
+&nbsp;//        installSplashScreen()
+<b class="nc">&nbsp;        setContent {</b>
+&nbsp;            FoodyTheme {
+&nbsp;                // A surface container using the &#39;background&#39; color from the theme
+&nbsp;                Surface(
+&nbsp;                    modifier = Modifier.fillMaxSize(),
+&nbsp;                    color = MaterialTheme.colorScheme.background
+&nbsp;                ) {
+&nbsp;                    val navController = rememberNavController()
+&nbsp;                    NavHost(
+&nbsp;                        navController = navController,
+&nbsp;                        startDestination = Screen.SplashScreen.route
+&nbsp;                    ) {
+&nbsp;
+&nbsp;                        composable(route = Screen.SplashScreen.route)
+&nbsp;                        {
+&nbsp;                            SplashScreen(
+&nbsp;                                onNavigateToLogin = {
+&nbsp;                                    navController.navigate(Screen.LoginScreen.route)
+&nbsp;                                                    },
+&nbsp;                                onNavigateToHome = {
+&nbsp;                                    navController.navigate(Screen.CookHomeScreen.route)
+&nbsp;                                })
+&nbsp;                        }
+&nbsp;                        composable(route = Screen.LoginScreen.route) {
+&nbsp;                            LoginScreen(
+&nbsp;                                onNavigateToSignUp = {
+&nbsp;                                    navController.navigate(Screen.SignupScreen.route)
+&nbsp;                                },
+&nbsp;                                onNavigateToHome = {
+&nbsp;                                    navController.navigate(Screen.CookHomeScreen.route)
+&nbsp;                                }
+&nbsp;                            )
+&nbsp;                        }
+&nbsp;                        composable(route = Screen.SignupScreen.route) {
+&nbsp;                            SignUpScreen(
+&nbsp;                                onNavigateToHome = {
+&nbsp;                                    navController.navigate(Screen.CookHomeScreen.route)
+&nbsp;                                }
+&nbsp;                            )
+&nbsp;                        }
+&nbsp;                        composable(route = Screen.CookHomeScreen.route) {
+&nbsp;                            HomeScreen(onProfileIconClicked = {
+&nbsp;                                navController.navigate(Screen.ProfileScreen.route)
+&nbsp;                            })
+&nbsp;                        }
+&nbsp;                        composable(route = Screen.CartScreen.route) {
+&nbsp;                            CartScreen(modifier = Modifier)
+&nbsp;                        }
+&nbsp;                        composable(route = Screen.OrderFoodScreen.route) {
+&nbsp;                            OrderFoodScreen(onNavigateCart = {navController.navigate(Screen.CartScreen.route)}
+&nbsp;                            )
+&nbsp;                        }
+&nbsp;
+&nbsp;                        composable(route = Screen.ProfileScreen.route) {
+&nbsp;                            ProfileScreen(onBackButtonClicked = {
+&nbsp;                                navController.popBackStack()
+&nbsp;                            })
+&nbsp;                        }
+&nbsp;//                        composable(route = Screen.FindOffersScreen.route){
+&nbsp;//                            FindOffersScreen()
+&nbsp;////                            FindOffersScreen(onNavigateToUserDelivery = {navController.navigate(Screen.UserOrderDeliveryStatusScreen.route)}
+&nbsp;////                            )
+&nbsp;//                        }
+&nbsp;
+&nbsp;                    }
+&nbsp;
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-04 16:59</div>
+</div>
+</body>
+</html>

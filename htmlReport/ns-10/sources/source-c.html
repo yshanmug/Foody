@@ -1,0 +1,349 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > RentChefScreenKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.chef.foody.screens</a>
+</div>
+
+<h1>Coverage Summary for Class: RentChefScreenKt (com.chef.foody.screens)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RentChefScreenKt</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/166)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">RentChefScreenKt$RentChefScreen$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">RentChefScreenKt$RentChefScreen$1$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">RentChefScreenKt$RentChefScreen$2$1$1$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">RentChefScreenKt$RentChefScreen$2$1$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">RentChefScreenKt$RentChefScreen$3</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/172)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.chef.foody.screens
+&nbsp;
+&nbsp;import androidx.compose.foundation.background
+&nbsp;import androidx.compose.foundation.layout.Arrangement
+&nbsp;import androidx.compose.foundation.layout.Column
+&nbsp;import androidx.compose.foundation.layout.fillMaxSize
+&nbsp;import androidx.compose.foundation.layout.fillMaxWidth
+&nbsp;import androidx.compose.foundation.layout.height
+&nbsp;import androidx.compose.foundation.layout.padding
+&nbsp;import androidx.compose.foundation.shape.RoundedCornerShape
+&nbsp;import androidx.compose.material3.Button
+&nbsp;import androidx.compose.material3.ButtonDefaults
+&nbsp;import androidx.compose.material3.ExperimentalMaterial3Api
+&nbsp;import androidx.compose.material3.Text
+&nbsp;import androidx.compose.material3.TextField
+&nbsp;import androidx.compose.material3.TextFieldDefaults
+&nbsp;import androidx.compose.runtime.Composable
+&nbsp;import androidx.compose.runtime.LaunchedEffect
+&nbsp;import androidx.compose.runtime.collectAsState
+&nbsp;import androidx.compose.runtime.getValue
+&nbsp;import androidx.compose.runtime.mutableStateOf
+&nbsp;import androidx.compose.runtime.remember
+&nbsp;import androidx.compose.runtime.rememberUpdatedState
+&nbsp;import androidx.compose.runtime.setValue
+&nbsp;import androidx.compose.ui.Modifier
+&nbsp;import androidx.compose.ui.draw.clip
+&nbsp;import androidx.compose.ui.graphics.Color
+&nbsp;import androidx.compose.ui.platform.testTag
+&nbsp;import androidx.compose.ui.text.font.FontWeight
+&nbsp;import androidx.compose.ui.text.style.TextAlign
+&nbsp;import androidx.compose.ui.tooling.preview.Preview
+&nbsp;import androidx.compose.ui.unit.dp
+&nbsp;import androidx.compose.ui.unit.sp
+&nbsp;import androidx.hilt.navigation.compose.hiltViewModel
+&nbsp;import com.chef.foody.data.repository.UserRepositoryImpl
+&nbsp;import com.chef.foody.util.Colors
+&nbsp;import com.chef.foody.util.TEST_TAG
+&nbsp;import com.chef.foody.viewmodels.UserViewModel
+&nbsp;import kotlinx.coroutines.flow.collect
+&nbsp;import kotlinx.coroutines.flow.collectLatest
+&nbsp;import kotlinx.coroutines.runBlocking
+&nbsp;
+&nbsp;
+&nbsp;@OptIn(ExperimentalMaterial3Api::class)
+&nbsp;@Composable
+&nbsp;fun RentChefScreen(
+<b class="nc">&nbsp;    userViewModel: UserViewModel = hiltViewModel(),</b>
+<b class="nc">&nbsp;    modifier: Modifier = Modifier,</b>
+&nbsp;    onNavigateToQuotationScreen:() -&gt; Unit
+<b class="nc">&nbsp;    ) {</b>
+<b class="nc">&nbsp;    var NotebyChef by remember { mutableStateOf(&quot; &quot;)}</b>
+<b class="nc">&nbsp;    var isPlaceholderVisible by remember { mutableStateOf(true)}</b>
+&nbsp;
+<b class="nc">&nbsp;    LaunchedEffect(key1 = &quot;NavigateToQuotationScreen&quot;) {</b>
+<b class="nc">&nbsp;       userViewModel.isChefRentOrderPosted.collect{isRentalChefOrderPosted-&gt;</b>
+<b class="nc">&nbsp;            if(isRentalChefOrderPosted)</b>
+&nbsp;            {
+<b class="nc">&nbsp;                onNavigateToQuotationScreen.invoke()</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    Column(</b>
+<b class="nc">&nbsp;        modifier = Modifier</b>
+<b class="nc">&nbsp;            .fillMaxSize()</b>
+&nbsp;//            .padding(horizontal = 16.dp, vertical = 8.dp)
+<b class="nc">&nbsp;            .padding(20.dp)</b>
+<b class="nc">&nbsp;            .height(80.dp)</b>
+<b class="nc">&nbsp;            .background(Colors.white),</b>
+<b class="nc">&nbsp;        verticalArrangement = Arrangement.Center,</b>
+&nbsp;        )
+&nbsp;
+&nbsp;    {
+<b class="nc">&nbsp;        Text(</b>
+<b class="nc">&nbsp;            text = &quot;Note For Chef: &quot;,</b>
+<b class="nc">&nbsp;            color =Colors.primaryOrange,</b>
+<b class="nc">&nbsp;            textAlign = TextAlign.Left,</b>
+<b class="nc">&nbsp;            fontWeight = FontWeight.Bold,</b>
+<b class="nc">&nbsp;            fontSize = 20.sp,</b>
+<b class="nc">&nbsp;            modifier = Modifier.padding(bottom = 8.dp)</b>
+&nbsp;
+&nbsp;        )
+&nbsp;//        Spacer(modifier = Modifier.size(1.dp))
+<b class="nc">&nbsp;        Text(</b>
+<b class="nc">&nbsp;            text = &quot;Please write a note to the chef specifying the ingredients you have at home and your desired meal. This note will help create a tailored menu for you. Include details such as the ingredients you have on hand and what you would like to eat. Your input will guide the Chef in Crafting a delicious meal just for you. &quot;,</b>
+<b class="nc">&nbsp;            color = Colors.black,</b>
+<b class="nc">&nbsp;            textAlign = TextAlign.Justify,</b>
+<b class="nc">&nbsp;            fontSize = 12.sp,</b>
+<b class="nc">&nbsp;            modifier = Modifier.padding(bottom = 25.dp)</b>
+&nbsp;        )
+&nbsp;
+<b class="nc">&nbsp;        Column(</b>
+<b class="nc">&nbsp;            modifier = Modifier</b>
+<b class="nc">&nbsp;                .fillMaxWidth()</b>
+<b class="nc">&nbsp;                .clip(RoundedCornerShape(30.dp))</b>
+<b class="nc">&nbsp;                .background(color = Colors.secondaryOrange)</b>
+<b class="nc">&nbsp;                .height(250.dp)</b>
+&nbsp;//                        .padding(10.dp),
+<b class="nc">&nbsp;                .padding(horizontal = 16.dp, vertical = 8.dp),</b>
+<b class="nc">&nbsp;            verticalArrangement = Arrangement.SpaceEvenly</b>
+&nbsp;        )
+&nbsp;
+&nbsp;        {
+<b class="nc">&nbsp;            TextField(</b>
+<b class="nc">&nbsp;                value = NotebyChef,</b>
+<b class="nc">&nbsp;                onValueChange = {</b>
+<b class="nc">&nbsp;                    NotebyChef = it</b>
+&nbsp;                },
+&nbsp;                placeholder = {
+&nbsp;                    Text(&quot;Enter your Note ...&quot;,color=Colors.grey)
+&nbsp;                              },
+<b class="nc">&nbsp;                colors = TextFieldDefaults.textFieldColors(</b>
+<b class="nc">&nbsp;                    containerColor = Colors.white,</b>
+<b class="nc">&nbsp;                    focusedIndicatorColor = Color.Transparent,</b>
+<b class="nc">&nbsp;                    unfocusedIndicatorColor = Color.Transparent,</b>
+<b class="nc">&nbsp;                    disabledIndicatorColor = Color.Transparent</b>
+&nbsp;                ),
+<b class="nc">&nbsp;                modifier = Modifier</b>
+<b class="nc">&nbsp;                    .fillMaxWidth()</b>
+<b class="nc">&nbsp;                    .clip(RoundedCornerShape(10.dp)).testTag(TEST_TAG.NOTE_TO_CHEF_TEXT_FIELD)</b>
+&nbsp;//                   .padding(bottom = 8.dp) // Add bottom padding to create space between fields
+&nbsp;//                    .background(Colors.white)
+<b class="nc">&nbsp;                    .height(100.dp)</b>
+&nbsp;            )
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            Button(</b>
+<b class="nc">&nbsp;                shape = RoundedCornerShape(10.dp),</b>
+<b class="nc">&nbsp;                colors = ButtonDefaults.buttonColors(containerColor = Colors.primaryOrange),</b>
+<b class="nc">&nbsp;                modifier = Modifier</b>
+<b class="nc">&nbsp;                    .fillMaxWidth()</b>
+<b class="nc">&nbsp;                    .height(50.dp).testTag(TEST_TAG.FIND_A_CHEF_WITH_NOTE_BUTTON_CLICK),</b>
+&nbsp;//                modifier =  Modifier.size(width = 100.dp,height = 40.dp)
+<b class="nc">&nbsp;                onClick = { userViewModel.onRentAChef(NotebyChef) },</b>
+&nbsp;
+&nbsp;//            .border(1.dp, Color.Green)
+&nbsp;            )
+&nbsp;            {
+&nbsp;                Text(&quot;Find A Chef&quot;, color = Colors.secondaryOrange, fontSize = 15.sp)
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;}</b>
+&nbsp;
+&nbsp;
+&nbsp;//@Preview(showBackground = true)
+&nbsp;//@Composable
+&nbsp;//fun RentChefScreenPreview() {
+&nbsp;//    RentAChefScreen()
+&nbsp;//}
+&nbsp;
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-04 16:59</div>
+</div>
+</body>
+</html>

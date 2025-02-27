@@ -1,0 +1,168 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UserRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.chef.foody.domain.repository</a>
+</div>
+
+<h1>Coverage Summary for Class: UserRepository (com.chef.foody.domain.repository)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">UserRepository$MockitoMock$908479107</td>
+  </tr>
+  <tr>
+    <td class="name">UserRepository$MockitoMock$908479107$auxiliary$IVoUBJAb</td>
+  </tr>
+  <tr>
+    <td class="name">UserRepository$MockitoMock$908479107$auxiliary$Nk85ZO4r</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.chef.foody.domain.repository
+&nbsp;
+&nbsp;import com.chef.foody.data.remote.AcceptOfferQuotationParam
+&nbsp;import com.chef.foody.data.remote.AcceptToRentalQuotationParam
+&nbsp;import com.chef.foody.data.remote.CartInfo
+&nbsp;import com.chef.foody.data.remote.CheckChefStatusParam
+&nbsp;import com.chef.foody.data.remote.CheckQuotationStatusParam
+&nbsp;import com.chef.foody.data.remote.ChefFindCustomerBetaParam
+&nbsp;import com.chef.foody.data.remote.ChefFindCustomerParam
+&nbsp;import com.chef.foody.data.remote.ChefOrderStatus
+&nbsp;import com.chef.foody.data.remote.ChefQuotationDetails
+&nbsp;import com.chef.foody.data.remote.ChefSendQuotationBetaParam
+&nbsp;import com.chef.foody.data.remote.ChefSendQuotationParam
+&nbsp;import com.chef.foody.data.remote.ChefUpdateOrderStatusParam
+&nbsp;import com.chef.foody.data.remote.CurrentRentalOrderStatus
+&nbsp;import com.chef.foody.data.remote.CurrentRentalOrderStatusParam
+&nbsp;import com.chef.foody.data.remote.CustomerCheckOrderStatus
+&nbsp;import com.chef.foody.data.remote.CustomerCheckOrderStatusParam
+&nbsp;import com.chef.foody.data.remote.CustomerInfo
+&nbsp;import com.chef.foody.data.remote.GetClientRentalOrderStatusByChefParam
+&nbsp;import com.chef.foody.data.remote.LookingForQuotationParam
+&nbsp;import com.chef.foody.data.remote.OrderFoodParam
+&nbsp;import com.chef.foody.data.remote.OrderStatus
+&nbsp;import com.chef.foody.data.remote.QuotationInfo
+&nbsp;import com.chef.foody.data.remote.RentChefUpdateOrderStatusParam
+&nbsp;import com.chef.foody.data.remote.UpdateUserAddressParam
+&nbsp;import com.chef.foody.domain.model.ChefStatus
+&nbsp;import com.chef.foody.domain.model.LoginStatus
+&nbsp;import com.chef.foody.domain.model.User
+&nbsp;import com.chef.foody.domain.util.Resource
+&nbsp;import kotlinx.coroutines.flow.Flow
+&nbsp;
+&nbsp;interface UserRepository {
+&nbsp;    suspend fun onUserLogin(email: String, password: String): Resource&lt;User&gt;
+&nbsp;    suspend fun onChefRegister(email: String, authToken: String): Resource&lt;Boolean&gt;
+&nbsp;
+&nbsp;    suspend fun onUserRegistration(firstName: String, lastName: String,email: String, password: String): Resource&lt;User&gt;
+&nbsp;    suspend fun getUserInfo(): Flow&lt;User&gt;
+&nbsp;    suspend fun storeUserInfo(user: User)
+&nbsp;    suspend fun getUserLoginStatus(): Flow&lt;LoginStatus&gt;
+&nbsp;
+&nbsp;    fun chefSetActiveOrder(orderStatus: OrderStatus)
+&nbsp;    fun chefResetActiveOrder()
+&nbsp;    fun chefGetActiveOrder(): OrderStatus?
+&nbsp;
+&nbsp;    //copy
+&nbsp;//    fun rentChefSetActiveOrder(orderStatus: ChefOrderStatus)
+&nbsp;//    fun rentChefResetActiveOrder()
+&nbsp;//    fun rentChefGetActiveOrder(): ChefOrderStatus?
+&nbsp;
+&nbsp;
+&nbsp;    suspend fun storeUserLoginStatus(loginStatus: LoginStatus)
+&nbsp;
+&nbsp;
+&nbsp;    suspend fun onChefFindCustomer(chefFindCustomerParam: ChefFindCustomerParam): Resource&lt;List&lt;CustomerInfo&gt;&gt;
+&nbsp;
+&nbsp;    suspend fun onChefSendQuotation(quotation: ChefSendQuotationParam): Resource&lt;Boolean&gt;
+&nbsp;
+&nbsp;    suspend fun onChefFindCustomerBeta(chefFindCustomerBetaParam: ChefFindCustomerBetaParam): Resource&lt;List&lt;CustomerInfo&gt;&gt;
+&nbsp;
+&nbsp;    suspend fun onChefSendQuotationBeta(quotation: ChefSendQuotationBetaParam): Resource&lt;Boolean&gt;
+&nbsp;
+&nbsp;    suspend fun onCheckChefStatus(checkChefStatusParam: CheckChefStatusParam): Resource&lt;ChefStatus&gt;
+&nbsp;
+&nbsp;    suspend fun onCheckQuotationStatus(checkQuotationStatusParam: CheckQuotationStatusParam): Resource&lt;OrderStatus&gt;
+&nbsp;
+&nbsp;    suspend fun onChefUpdateOrderStatus(chefUpdateOrderStatusParam: ChefUpdateOrderStatusParam): Resource&lt;Boolean&gt;
+&nbsp;//copy
+&nbsp;   suspend fun onRentChefUpdateOrderStatus(rentChefUpdateOrderStatusParam: RentChefUpdateOrderStatusParam): Resource&lt;Boolean&gt;
+&nbsp;    suspend fun onRentChefStatusCheck(getClientRentalOrderStatusByChefParam: GetClientRentalOrderStatusByChefParam): Resource&lt;ChefOrderStatus&gt;
+&nbsp;    suspend fun onOrderFood(orderFoodParam: OrderFoodParam): Resource&lt;Boolean&gt;
+&nbsp;
+&nbsp;    suspend fun onLookingForQuotation(lookingForQuotationParam: LookingForQuotationParam): Resource&lt;Pair&lt;List&lt;CartInfo&gt;, List&lt;QuotationInfo&gt;&gt;&gt;
+&nbsp;
+&nbsp;    suspend fun onLookingForChefRentQuotation(email: String , authToken: String): Resource&lt;List&lt;ChefQuotationDetails&gt;&gt;
+&nbsp;
+&nbsp;    suspend fun onUpdateUserAddress(updateUserAddressParam: UpdateUserAddressParam): Resource&lt;Boolean&gt;
+&nbsp;    suspend fun onAcceptOfferQuotation(acceptOfferQuotationParam: AcceptOfferQuotationParam): Resource&lt;Boolean&gt;
+&nbsp;    suspend fun onCustomerCheckOrderStatus(customerCheckOrderStatusParam: CustomerCheckOrderStatusParam): Resource&lt;CustomerCheckOrderStatus&gt;
+&nbsp;    suspend fun onRentAChef(email: String, note: String, authToken: String): Resource&lt;Boolean&gt;
+&nbsp;
+&nbsp;    suspend fun onAcceptToRentalQuotation(acceptToRentalQuotationParam: AcceptToRentalQuotationParam): Resource&lt;Boolean&gt;
+&nbsp;
+&nbsp;    suspend fun onCurrentRentalOrderStatus(currentRentalOrderStatusParam: CurrentRentalOrderStatusParam): Resource&lt;CurrentRentalOrderStatus&gt;
+&nbsp;    suspend fun storeChefStatus(chefStatus: ChefStatus)
+&nbsp;
+&nbsp;    suspend fun getChefStatus(): Flow&lt;ChefStatus&gt;
+&nbsp;
+&nbsp;    suspend fun getUserAddress(email: String, authToken: String): Resource&lt;String&gt;
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-04 16:59</div>
+</div>
+</body>
+</html>

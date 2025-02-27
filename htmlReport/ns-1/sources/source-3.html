@@ -1,0 +1,526 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UserType</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: UserType (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserType</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;
+&nbsp;
+&nbsp;import androidx.compose.foundation.background
+&nbsp;import androidx.compose.foundation.clickable
+&nbsp;import androidx.compose.foundation.layout.Arrangement
+&nbsp;import androidx.compose.foundation.layout.Box
+&nbsp;import androidx.compose.foundation.layout.Column
+&nbsp;import androidx.compose.foundation.layout.Row
+&nbsp;import androidx.compose.foundation.layout.fillMaxHeight
+&nbsp;import androidx.compose.foundation.layout.fillMaxSize
+&nbsp;import androidx.compose.foundation.layout.fillMaxWidth
+&nbsp;import androidx.compose.foundation.layout.height
+&nbsp;import androidx.compose.foundation.layout.padding
+&nbsp;import androidx.compose.foundation.layout.size
+&nbsp;import androidx.compose.foundation.shape.RoundedCornerShape
+&nbsp;import androidx.compose.material3.Scaffold
+&nbsp;import androidx.compose.material3.Text
+&nbsp;import androidx.compose.runtime.Composable
+&nbsp;import androidx.compose.runtime.LaunchedEffect
+&nbsp;import androidx.compose.runtime.getValue
+&nbsp;import androidx.compose.runtime.mutableStateOf
+&nbsp;import androidx.compose.runtime.remember
+&nbsp;import androidx.compose.ui.Alignment
+&nbsp;import androidx.compose.ui.Modifier
+&nbsp;import androidx.compose.ui.draw.clip
+&nbsp;import androidx.compose.ui.draw.shadow
+&nbsp;import androidx.compose.ui.graphics.Color
+&nbsp;import androidx.compose.ui.platform.testTag
+&nbsp;import androidx.compose.ui.text.style.TextAlign
+&nbsp;import androidx.compose.ui.tooling.preview.Preview
+&nbsp;import androidx.compose.ui.unit.dp
+&nbsp;import androidx.hilt.navigation.compose.hiltViewModel
+&nbsp;import androidx.navigation.NavHostController
+&nbsp;import androidx.navigation.compose.NavHost
+&nbsp;import androidx.navigation.compose.composable
+&nbsp;import androidx.navigation.compose.currentBackStackEntryAsState
+&nbsp;import androidx.navigation.compose.rememberNavController
+&nbsp;import com.airbnb.lottie.LottieComposition
+&nbsp;import com.airbnb.lottie.compose.LottieAnimation
+&nbsp;import com.airbnb.lottie.compose.LottieCompositionSpec
+&nbsp;import com.airbnb.lottie.compose.LottieConstants
+&nbsp;import com.airbnb.lottie.compose.animateLottieCompositionAsState
+&nbsp;import com.airbnb.lottie.compose.rememberLottieComposition
+&nbsp;import com.chef.foody.R
+&nbsp;import com.chef.foody.domain.model.ChefStatus
+&nbsp;import com.chef.foody.screens.BottomBar
+&nbsp;import com.chef.foody.screens.CartScreen
+&nbsp;import com.chef.foody.screens.ChefCertificateUploadScreen
+&nbsp;import com.chef.foody.screens.ChefConfirmedScreen
+&nbsp;import com.chef.foody.screens.ChefHomeRouteScreen
+&nbsp;import com.chef.foody.screens.ChefHomeScreen
+&nbsp;import com.chef.foody.screens.ChefOrderStatusDoorScreen
+&nbsp;import com.chef.foody.screens.ChefOrderStatusPickupScreen
+&nbsp;import com.chef.foody.screens.FindChefScreen
+&nbsp;import com.chef.foody.screens.FindOffersScreen
+&nbsp;import com.chef.foody.screens.OrderFoodScreen
+&nbsp;import com.chef.foody.screens.RentChefScreen
+&nbsp;import com.chef.foody.screens.RentalChefStatusScreen
+&nbsp;import com.chef.foody.screens.TopBarGreeting
+&nbsp;import com.chef.foody.screens.UserOrderDeliveryStatusScreen
+&nbsp;import com.chef.foody.screens.UserOrderPickupStatusScreen
+&nbsp;import com.chef.foody.util.AppConstants.CURRENT_ACTIVE_ORDER_ID
+&nbsp;import com.chef.foody.util.Screen
+&nbsp;import com.chef.foody.util.TEST_TAG
+&nbsp;import com.chef.foody.viewmodels.UserViewModel
+&nbsp;
+&nbsp;
+&nbsp;@Composable
+&nbsp;fun HomeScreen(isTesting: Boolean = false,userViewModel: UserViewModel = hiltViewModel(),onProfileIconClicked:() -&gt; Unit = {}) {//viewModel: UserViewModel =  hiltViewModel()) {
+&nbsp;
+&nbsp;    val navController = rememberNavController()
+&nbsp;    val userType = remember {
+&nbsp;        mutableStateOf(UserType.COOK)
+&nbsp;    }
+&nbsp;    Scaffold(
+&nbsp;        bottomBar = {
+&nbsp;           BottomBar(onCookScreenNavigation = {
+&nbsp;               navController.navigate(UserType.COOK.name)
+&nbsp;           }, onChefScreenNavigation = {
+&nbsp;               navController.navigate(UserType.CHEF.name)
+&nbsp;           })
+&nbsp;        }, topBar = {
+&nbsp;            TopBarGreeting(onProfileIconClicked = onProfileIconClicked)
+&nbsp;        }, content = {
+&nbsp;            MainScreenNavigationConfigurations(
+&nbsp;                Modifier.padding(it),
+&nbsp;                navController = navController,
+&nbsp;                isTesting = isTesting,
+&nbsp;                userViewModel = userViewModel
+&nbsp;            )
+&nbsp;        }
+&nbsp;    )
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;@Composable
+&nbsp;private fun MainScreenNavigationConfigurations(
+&nbsp;    modifier: Modifier,
+&nbsp;    navController: NavHostController,
+&nbsp;    isTesting: Boolean,
+&nbsp;    userViewModel: UserViewModel = hiltViewModel()
+&nbsp;) {
+&nbsp;    NavHost(navController, startDestination = UserType.COOK.name) {
+&nbsp;        composable(UserType.COOK.name) {
+&nbsp;            CookHomeScreen(modifier = modifier, isTesting = isTesting, onNavigate = {
+&nbsp;                navController.navigate(it)
+&nbsp;            })
+&nbsp;        }
+&nbsp;        composable(Screen.OrderFoodScreen.route)
+&nbsp;        {
+&nbsp;
+&nbsp;            OrderFoodScreen(
+&nbsp;                modifier = modifier,
+&nbsp;                onNavigateCart = {navController.navigate(Screen.CartScreen.route)},
+&nbsp;                userViewModel = userViewModel
+&nbsp;            )
+&nbsp;        }
+&nbsp;        composable(Screen.FindRentalChef.route) {
+&nbsp;            FindChefScreen(
+&nbsp;                modifier = modifier,
+&nbsp;                onNavigateToChefConfirmed = {navController.navigate(Screen.ChefConfirmedScreen.route)},
+&nbsp;                )
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;        composable(route = Screen.ChefConfirmedScreen.route) {
+&nbsp;            ChefConfirmedScreen(modifier)
+&nbsp;        }
+&nbsp;
+&nbsp;        composable(Screen.RentAChefScreen.route)
+&nbsp;        {
+&nbsp;            RentChefScreen(
+&nbsp;//                modifier = modifier,
+&nbsp;                onNavigateToQuotationScreen = {
+&nbsp;                    navController.navigate(Screen.FindRentalChef.route)
+&nbsp;                                              },
+&nbsp;//                userViewModel = userViewModel
+&nbsp;            )
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;        composable(UserType.CHEF.name) {
+&nbsp;            LaunchedEffect(Unit) {
+&nbsp;                userViewModel.onCheckChefStatus()
+&nbsp;            }
+&nbsp;            // if verified then navigate to chef home screen
+&nbsp;            ChefHomeRouteScreen(
+&nbsp;                modifier = modifier,
+&nbsp;                onNavigationVerified = { navController.navigate(Screen.ChefHomeScreen.route) },
+&nbsp;                onNavigationUnverified = { navController.navigate(Screen.ChefCertificateUploadScreen.route) }
+&nbsp;            )
+&nbsp;//            if(userViewModel.userState.value.chefStatus == ChefStatus.VERIFIED)
+&nbsp;//            {
+&nbsp;//                ChefHomeScreen(modifier = modifier,
+&nbsp;//                    onNavigationChefOrderConfirmedDoor = {navController.navigate(Screen.ChefOrderConfirmedDoor.route)},
+&nbsp;//                    onNavigationChefOrderConfirmedPickup = {navController.navigate(Screen.ChefOrderConfirmedPickup.route)}
+&nbsp;//                )
+&nbsp;////                ChefHomeRouteScreen(
+&nbsp;////                    modifier = modifier,
+&nbsp;////                    onNavigationVerified = { navController.navigate(Screen.ChefHomeScreen.route) },
+&nbsp;////                    onNavigationUnverified = { navController.navigate(Screen.ChefCertificateUploadScreen.route) }
+&nbsp;////                )
+&nbsp;//            }
+&nbsp;//            else
+&nbsp;//            {
+&nbsp;//                navController.navigate(Screen.ChefCertificateUploadScreen.route)
+&nbsp;//            }
+&nbsp;//            //ChefCertificateUploadScreen(modifier = modifier)
+&nbsp;
+&nbsp;        }
+&nbsp;        composable(Screen.ChefOrderConfirmedPickup.route) {
+&nbsp;            ChefOrderStatusPickupScreen(modifier = modifier)
+&nbsp;        }
+&nbsp;        composable(Screen.ChefOrderConfirmedDoor.route) {
+&nbsp;            ChefOrderStatusDoorScreen(modifier = modifier)
+&nbsp;        }
+&nbsp;        composable(&quot;${Screen.RentalChefStatusScreen.route}/{${CURRENT_ACTIVE_ORDER_ID}}&quot;) {
+&nbsp;            backStackEntry-&gt; val orderID = backStackEntry.arguments?.getString(CURRENT_ACTIVE_ORDER_ID)
+&nbsp;            orderID?.let {
+&nbsp;                RentalChefStatusScreen(modifier = modifier,currentOrderID = orderID.toInt())
+&nbsp;            }
+&nbsp;
+&nbsp;
+&nbsp;        }
+&nbsp;        composable(Screen.CartScreen.route){
+&nbsp;            CartScreen(
+&nbsp;                modifier = modifier,
+&nbsp;                onNavigateFindOffers = {navController.navigate(Screen.FindOffersScreen.route)},
+&nbsp;                userViewModel = userViewModel
+&nbsp;            )
+&nbsp;        }
+&nbsp;//        composable(Screen.ChefHomeRouteScreen.route) {
+&nbsp;//            ChefHomeRouteScreen(
+&nbsp;//                modifier = modifier,
+&nbsp;//                onNavigationUnverified = {navController.navigate(Screen.ChefCertificateUploadScreen.route)},
+&nbsp;//                onNavigationVerified = {navController.navigate(Screen.ChefHomeScreen.route)}
+&nbsp;//            )
+&nbsp;//        }
+&nbsp;        composable(Screen.ChefHomeScreen.route) {
+&nbsp;            ChefHomeScreen(
+&nbsp;                modifier = modifier,
+&nbsp;                onNavigationChefOrderConfirmedPickup = {navController.navigate(Screen.ChefOrderConfirmedPickup.route)},
+&nbsp;                onNavigationChefOrderConfirmedDoor = {navController.navigate(Screen.ChefOrderConfirmedDoor.route)},
+&nbsp;                onNavigationChefRentChefConfirmed = {navController.navigate(&quot;${Screen.RentalChefStatusScreen.route}/${it}&quot;)}
+&nbsp;            )
+&nbsp;        }
+&nbsp;        composable(Screen.ChefCertificateUploadScreen.route) {
+&nbsp;            ChefCertificateUploadScreen(modifier = modifier, onNavigationChefToChefHomeScreenAfterVerification =
+&nbsp;            {
+&nbsp;                navController.navigate(UserType.CHEF.name)
+&nbsp;            }
+&nbsp;            )
+&nbsp;        }
+&nbsp;        composable(Screen.ChefCertificateVerificationInProgressScreen.route) {
+&nbsp;            // ChefCertificateVerificationInProgressScreen(modifier = modifier)
+&nbsp;        }
+&nbsp;
+&nbsp;        composable(route = Screen.UserOrderPickupStatusScreen.route) {
+&nbsp;            UserOrderPickupStatusScreen(modifier)
+&nbsp;        }
+&nbsp;        composable(route = Screen.UserOrderDeliveryStatusScreen.route) {
+&nbsp;            UserOrderDeliveryStatusScreen(modifier)
+&nbsp;        }
+&nbsp;
+&nbsp;        composable(Screen.FindOffersScreen.route){
+&nbsp;            userViewModel.resetQuotationList()
+&nbsp;            FindOffersScreen(modifier = modifier, userViewModel = userViewModel,
+&nbsp;                onNavigateToDeliveryStatus={
+&nbsp;
+&nbsp;                    navController.navigate(Screen.UserOrderDeliveryStatusScreen.route)
+&nbsp;                },
+&nbsp;            onNavigateToPickupStatus={
+&nbsp;                navController.navigate(Screen.UserOrderPickupStatusScreen.route)
+&nbsp;            }
+&nbsp;            )
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;enum class UserType{
+<b class="nc">&nbsp;    COOK,</b>
+<b class="nc">&nbsp;    CHEF</b>
+&nbsp;}
+&nbsp;
+&nbsp;
+&nbsp;@Composable
+&nbsp; fun currentRoute(navController: NavHostController): String? {
+&nbsp;    val navBackStackEntry by navController.currentBackStackEntryAsState()
+&nbsp;    return navBackStackEntry?.arguments?.getString(&quot;KEY_ROUTE&quot;)
+&nbsp;}
+&nbsp;
+&nbsp;
+&nbsp;@Composable
+&nbsp;fun CookHomeScreen(onNavigate:(String) -&gt; Unit,isTesting: Boolean, modifier: Modifier) {
+&nbsp;    Column(
+&nbsp;        modifier = modifier
+&nbsp;            .fillMaxSize()
+&nbsp;            .background(Color.White),
+&nbsp;        horizontalAlignment = Alignment.CenterHorizontally,
+&nbsp;        verticalArrangement = Arrangement.spacedBy(16.dp)
+&nbsp;    ) {
+&nbsp;        // Box - Order Food Button
+&nbsp;        if(isTesting)
+&nbsp;        {
+&nbsp;            Box(
+&nbsp;                modifier = Modifier.testTag(TEST_TAG.ORDER_FOOD_BUTTON_CLICK)
+&nbsp;                    .fillMaxWidth()
+&nbsp;                    .height(150.dp)
+&nbsp;                    .padding(horizontal = 20.dp)
+&nbsp;                    .shadow(10.dp, RoundedCornerShape(25.dp))
+&nbsp;                    .clip(RoundedCornerShape(20.dp))
+&nbsp;                    .background(color = Color(0xFFFFE6C7))
+&nbsp;                    .clickable {
+&nbsp;                        onNavigate(Screen.OrderFoodScreen.route)
+&nbsp;                    }, contentAlignment = Alignment.Center) {
+&nbsp;                Text(text = &quot;Order Food&quot;)
+&nbsp;            }
+&nbsp;            Box(
+&nbsp;                modifier = Modifier
+&nbsp;                    .fillMaxWidth()
+&nbsp;                    .height(150.dp)
+&nbsp;                    .padding(horizontal = 20.dp)
+&nbsp;                    .shadow(10.dp, RoundedCornerShape(25.dp))
+&nbsp;                    .clip(RoundedCornerShape(20.dp))
+&nbsp;                    .background(color = Color(0xFFFFE6C7))
+&nbsp;                    .clickable {
+&nbsp;                    }, contentAlignment = Alignment.Center) {
+&nbsp;                Text(text = &quot;Cook Virtually&quot;)
+&nbsp;            }
+&nbsp;            Box(
+&nbsp;                modifier = Modifier.testTag(TEST_TAG.PERSONAL_CHEF_BUTTON_CLICK)
+&nbsp;                    .fillMaxWidth()
+&nbsp;                    .height(150.dp)
+&nbsp;                    .padding(horizontal = 20.dp)
+&nbsp;                    .shadow(10.dp, RoundedCornerShape(25.dp))
+&nbsp;                    .clip(RoundedCornerShape(20.dp))
+&nbsp;                    .background(color = Color(0xFFFFE6C7))
+&nbsp;                    .clickable {
+&nbsp;                        onNavigate(Screen.RentAChefScreen.route)
+&nbsp;                    }, contentAlignment = Alignment.Center) {
+&nbsp;                Text(text = &quot;Personal Chef&quot;)
+&nbsp;            }
+&nbsp;        }
+&nbsp;        else
+&nbsp;        {
+&nbsp;
+&nbsp;            val preloader1LottieComposition by rememberLottieComposition(
+&nbsp;                LottieCompositionSpec.RawRes(
+&nbsp;                    R.raw.order_food_animation
+&nbsp;                )
+&nbsp;            )
+&nbsp;
+&nbsp;            val preloader2LottieComposition by rememberLottieComposition(
+&nbsp;                LottieCompositionSpec.RawRes(
+&nbsp;                    R.raw.cook_virtually_animation
+&nbsp;                )
+&nbsp;            )
+&nbsp;
+&nbsp;            val preloader3LottieComposition by rememberLottieComposition(
+&nbsp;                LottieCompositionSpec.RawRes(
+&nbsp;                    R.raw.rent_chef_animation
+&nbsp;                )
+&nbsp;            )
+&nbsp;
+&nbsp;            val preloader1Progress by animateLottieCompositionAsState(
+&nbsp;                preloader1LottieComposition,
+&nbsp;                iterations = LottieConstants.IterateForever,
+&nbsp;                isPlaying = true
+&nbsp;            )
+&nbsp;
+&nbsp;            val preloader2Progress by animateLottieCompositionAsState(
+&nbsp;                preloader2LottieComposition,
+&nbsp;                iterations = LottieConstants.IterateForever,
+&nbsp;                isPlaying = true
+&nbsp;            )
+&nbsp;
+&nbsp;            val preloader3Progress by animateLottieCompositionAsState(
+&nbsp;                preloader3LottieComposition,
+&nbsp;                iterations = LottieConstants.IterateForever,
+&nbsp;                isPlaying = true
+&nbsp;            )
+&nbsp;            ButtonBox(preloader1LottieComposition, preloader1Progress, &quot;Order Food&quot;,onNavigate = {
+&nbsp;                onNavigate(Screen.OrderFoodScreen.route)
+&nbsp;            })
+&nbsp;
+&nbsp;            // box - Cook Virtually Button
+&nbsp;            ButtonBox(preloader2LottieComposition, preloader2Progress, &quot;Cook Virtually&quot;,onNavigate={
+&nbsp;
+&nbsp;            })
+&nbsp;
+&nbsp;            // box - Rent a Personal Chef Button
+&nbsp;            ButtonBox(preloader3LottieComposition, preloader3Progress, &quot;Personal Chef&quot;,onNavigate={
+&nbsp;                onNavigate(Screen.RentAChefScreen.route)
+&nbsp;            })
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;@Composable
+&nbsp;fun ButtonBox(
+&nbsp;    composition: LottieComposition?,
+&nbsp;    progress: Float,
+&nbsp;    buttonText: String,
+&nbsp;    onNavigate:() -&gt; Unit
+&nbsp;) {
+&nbsp;    Box(
+&nbsp;        modifier = Modifier
+&nbsp;            .fillMaxWidth()
+&nbsp;            .height(150.dp)
+&nbsp;            .padding(horizontal = 20.dp)
+&nbsp;            .shadow(10.dp, RoundedCornerShape(25.dp))
+&nbsp;            .clip(RoundedCornerShape(20.dp))
+&nbsp;            .background(color = Color(0xFFFFE6C7))
+&nbsp;            .clickable {
+&nbsp;                onNavigate()
+&nbsp;            },
+&nbsp;        contentAlignment = Alignment.Center
+&nbsp;    ) {
+&nbsp;        Row(
+&nbsp;            modifier = Modifier
+&nbsp;                .fillMaxWidth()
+&nbsp;                .padding(horizontal = 16.dp),
+&nbsp;            horizontalArrangement = Arrangement.SpaceBetween,
+&nbsp;            verticalAlignment = Alignment.CenterVertically
+&nbsp;        ) {
+&nbsp;            LottieAnimation(
+&nbsp;                composition = composition,
+&nbsp;                progress = progress,
+&nbsp;                modifier = Modifier.size(125.dp)
+&nbsp;            )
+&nbsp;
+&nbsp;            Box(
+&nbsp;                modifier = Modifier
+&nbsp;                    .weight(1f)
+&nbsp;                    .padding(8.dp)
+&nbsp;                    .clip(RoundedCornerShape(10.dp))
+&nbsp;                    .background(color = Color(0xFFFAA73D))
+&nbsp;                    .fillMaxHeight()
+&nbsp;                    .padding(vertical = 8.dp),
+&nbsp;                contentAlignment = Alignment.Center
+&nbsp;            ) {
+&nbsp;                Text(
+&nbsp;                    text = buttonText,
+&nbsp;                    textAlign = TextAlign.Center,
+&nbsp;                    color = Color.White
+&nbsp;                )
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;@Preview(showBackground = true)
+&nbsp;@Composable
+&nbsp;fun HomeScreenPreview() {
+&nbsp;    HomeScreen()
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-04 16:59</div>
+</div>
+</body>
+</html>

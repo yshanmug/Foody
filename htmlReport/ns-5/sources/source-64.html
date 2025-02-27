@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UserApi</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.chef.foody.data.remote</a>
+</div>
+
+<h1>Coverage Summary for Class: UserApi (com.chef.foody.data.remote)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">UserApi$MockitoMock$462784733</td>
+  </tr>
+  <tr>
+    <td class="name">UserApi$MockitoMock$462784733$auxiliary$HkDvk20I</td>
+  </tr>
+  <tr>
+    <td class="name">UserApi$MockitoMock$462784733$auxiliary$mO2U7nf0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.chef.foody.data.remote
+&nbsp;
+&nbsp;import retrofit2.http.Body
+&nbsp;import retrofit2.http.Header
+&nbsp;import retrofit2.http.Headers
+&nbsp;import retrofit2.http.POST
+&nbsp;
+&nbsp;interface UserApi {
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onUserLogin(@Body userLoginRequest: UserLoginRequest): UserLoginResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun registerChef(@Body registerChefRequest: RegisterChefRequest, @Header(&quot;Authorization&quot;) authToken: String): RegisterChefResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onUserRegistration(@Body userRegistrationRequest: UserRegistrationRequest): UserRegistrationResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onChefFindCustomer(@Body chefFindCustomerRequest: ChefFindCustomerRequest, @Header(&quot;Authorization&quot;) authToken: String): ChefFindCustomerResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onChefSendQuotation(@Body chefSendQuotationRequest: ChefSendQuotationRequest, @Header(&quot;Authorization&quot;) authToken: String): ChefSendQuotationResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onChefFindCustomerBeta(@Body chefFindCustomerBetaRequest: ChefFindCustomerBetaRequest, @Header(&quot;Authorization&quot;) authToken: String): ChefFindCustomerBetaResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onChefSendQuotationBeta(@Body chefSendQuotationBetaRequest: ChefSendQuotationBetaRequest, @Header(&quot;Authorization&quot;) authToken: String): ChefSendQuotationBetaResponse
+&nbsp;
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onCheckChefStatus(@Body checkChefStatusRequest: CheckChefStatusRequest, @Header(&quot;Authorization&quot;) authToken: String): CheckChefStatusResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onChefUpdateOrderStatus(@Body chefUpdateOrderStatusRequest: ChefUpdateOrderStatusRequest, @Header(&quot;Authorization&quot;) authToken: String):ChefUpdateOrderStatusResponse
+&nbsp;
+&nbsp;    //copy
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onRentChefUpdateOrderStatus(@Body rentChefOrderUpdateOrderStatusRequest: RentChefUpdateOrderStatusRequest, @Header(&quot;Authorization&quot;) authToken: String): ChefUpdateOrderStatusResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onRentChefCheckOrderStatus(@Body getClientRentalOrderStatusByChefRequest: GetClientRentalOrderStatusByChefRequest, @Header(&quot;Authorization&quot;) authToken: String): GetClientRentalOrderStatusByChefResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onCheckQuotationStatus(@Body checkQuotationStatusRequest: CheckQuotationStatusRequest, @Header(&quot;Authorization&quot;) authToken: String): CheckQuotationResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onOrderFood(@Body orderFoodRequest: OrderFoodRequest, @Header(&quot;Authorization&quot;) authToken: String): OrderFoodResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onLookingForQuotation(@Body lookingForQuotationRequest: LookingForQuotationRequest, @Header(&quot;Authorization&quot;) authToken: String): LookingForQuotationResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onUpdateUserAddress(@Body updateUserAddressRequest: UpdateUserAddressRequest, @Header(&quot;Authorization&quot;) authToken: String): UpdateUserAddressResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onRentAChef(@Body rentChef: RentChefRequest, @Header(&quot;Authorization&quot;) authToken: String): RentChefResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onLookingForChefRentQuotation(@Body lookingForChefRentQuotation: LookingForChefRentQuotationRequest, @Header(&quot;Authorization&quot;) authToken: String): LookingForChefRentQuotationResponse
+&nbsp;
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onAcceptOfferQuotation(@Body acceptOfferQuotationRequest: AcceptOfferQuotationRequest, @Header(&quot;Authorization&quot;) authToken: String): AcceptOfferQuotationResponse
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onCustomerCheckOrderStatus(@Body customerCheckOrderStatusRequest: CustomerCheckOrderStatusRequest, @Header(&quot;Authorization&quot;) authToken: String): CustomerCheckOrderStatusResponse
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onAcceptToRentalQuotation(@Body acceptToRentalQuotationRequest: AcceptToRentalQuotationRequest, @Header(&quot;Authorization&quot;) authToken: String): AcceptToRentalQuotationResponse
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun onCurrentRentalOrderStatus(@Body currentRentalOrderStatusRequest: CurrentRentalOrderStatusRequest, @Header(&quot;Authorization&quot;) authToken: String): CurrentRentalOrderStatusResponse
+&nbsp;
+&nbsp;
+&nbsp;    @Headers(&quot;Content-Type: application/json&quot;)
+&nbsp;    @POST(&quot;/&quot;)
+&nbsp;    suspend fun getUserAddress(@Body getUserAddressRequest: GetUserAddressRequest, @Header(&quot;Authorization&quot;) authToken: String): GetUserAddressResponse
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-04 16:59</div>
+</div>
+</body>
+</html>
